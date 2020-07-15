@@ -1,5 +1,10 @@
 # cloudxhoster-api project
 
+This project aims to automate cloud deployment by providing informations like domain name, website name or region.
+Now, we only study the case of AWS deployment but later, we will integrate other cloud providers like AZURE or GCP.
+
+This is a rest api that intend to be consumed by a backoffice-like website to make all operations in order to deploy a website into the cloud.
+
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
 If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
