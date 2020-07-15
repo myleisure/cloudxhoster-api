@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloudxhoster-api
+  labels:
+    app: cloudxhoster-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cloudxhoster-api
+  template:
+    metadata:
+      labels:
+        app: cloudxhoster-api
+    spec:
+      containers:
+        - name: cloudxhoster-api-app
+          image: registry.gitlab.com/cloudxhoster/cloudxhoster-api:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          env:
+            - name: QUARKUS_PROFILE
+              valueFrom:
+                configMapKeyRef:
+                  name: cloudxhoster-api-configmap
+                  key: quarkus-profile
+      imagePullSecrets:
+        - name: gitlab-registry
+      restartPolicy: Always

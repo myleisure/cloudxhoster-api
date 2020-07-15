@@ -1,0 +1,12 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: cloudxhoster-api-ingress
+  annotations:
+    kubernetes.io/ingress.global-static-ip-name: cloudxhoster-api-ip
+  labels:
+    app: cloudxhoster-api
+spec:
+  backend:
+    serviceName: cloudxhoster-api-service
+    servicePort: 80
